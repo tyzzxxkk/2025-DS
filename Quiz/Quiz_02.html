@@ -3,13 +3,17 @@
 </head>
 <body>
     <script>
-        function solution() {
-            let answer = 0;
-            for(let i =0; i < arr.length; i++) {
-                if(arr[i]==) {
-                    answer++;
-                }
+        
+        function solution(arr) {
+           let answer=0; cnt =0;
+           for(let x of arr) {
+            // console.log(x);
+            if(x==1) {
+                cnt++;
+                answer+=cnt;
             }
+            else cnt=0;
+           }
             return answer;
         }
         let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
