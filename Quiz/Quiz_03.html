@@ -1,0 +1,26 @@
+<head>
+    <title>스택 : 올바른 괄호</title>
+</head>
+<body>
+    <script>
+        function solution(a) {
+            let answer;
+            let stack = [];
+
+            for(let x of a) {
+               // console.log(x);
+               if(x === '(') stack.push();
+               else {
+                if(stack.length===0) return "NO";
+                stack.pop();
+               }
+            }
+
+
+            return answer;
+        } // solution
+
+        let a = "()";
+        console.log(solution());
+    </script>
+</body>
