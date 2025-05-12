@@ -1,5 +1,5 @@
 <head>
-    <title>괄호 안에 문자 제거</title>
+    <title>후위식 연산 - postfix</title>
 </head>
 <body>
     <script>
@@ -8,15 +8,15 @@
             let stack = [];
 
             for(let x of s) {
-                if(x===")") {
-                    while(stack.pop() !=='(');
+                if(x===')') {
+                    
                 }
-                else stack.push(x);
             }
-            answer = stack.join('');
+
             return answer;
         }
-        let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
+        let str = "352+*9-";
+//      let str = "35-7*62/+"
         console.log(solution(str));
     </script>
 </body>
