@@ -1,5 +1,5 @@
 <head>
-    <title>후위식 연산 - postfix</title>
+    <title>stack - 후위연산식</title>
 </head>
 <body>
     <script>
@@ -8,15 +8,24 @@
             let stack = [];
 
             for(let x of s) {
-                if(x===')') {
-                    
+                if(isNan(x)) {
+                    //console.log(x);
+                    stack.push(Number(x));
+                } else {
+                    let rt = stack.pop();
+                    let lt = stack.pop();
+
+                    if(x==='+') stack.push(lt+rt);
+                    else if(x==='-') stack.pusj(lt-rt);
+                    else if(x==='*') stack.pusj(lt*rt);
+                    else if(x==='/') stack.pusj(lt/rt);
                 }
             }
 
             return answer;
         }
-        let str = "352+*9-";
-//      let str = "35-7*62/+"
+        let str = "352+*9-"; //출력값:12
+//      let str = "35-7*62/+" //출력값:-11
         console.log(solution(str));
     </script>
 </body>
