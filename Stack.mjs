@@ -6,7 +6,7 @@ class Stack {
     }
 
 push(data) {
-    this.lis.insertAt(0, data);
+    this.list.insertAt(0, data);
 }
 
 pop() {
@@ -22,9 +22,10 @@ Peek() {
     return this.list.getNodeAt(0);
 }
 
-isEmpthy() {
-    return (this.list.count==0);
+iisEmpty() {
+    return this.list.count == 0;
 }
+
 
 }
 
