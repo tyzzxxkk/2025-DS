@@ -3,21 +3,26 @@
 </head>
 <body>
     <script>
-        
+        // 점수 계산 함수
+        // 1이 연속되면 연속된 횟수만큼 점수를 더함
         function solution(arr) {
-           let answer=0; cnt =0;
-           for(let x of arr) {
-            // console.log(x);
-            if(x==1) {
-                cnt++;
-                answer+=cnt;
-            }
-            else cnt=0;
+           let answer = 0;  // 총 점수
+           let cnt = 0;     // 연속된 1의 개수
+
+           for (let x of arr) {
+               // console.log(x);
+               if (x === 1) {
+                   cnt++;            // 1이 연속되면 카운트 증가
+                   answer += cnt;    // 연속 횟수만큼 점수 추가
+               } else {
+                   cnt = 0;          // 0 나오면 카운트 초기화
+               }
            }
-            return answer;
+           return answer;        // 최종 점수 반환
         }
+
         let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
-        console.log(solution(arr));
+        console.log(solution(arr));  // 함수 실행 및 결과 출력
     </script>
 </body>
 </html>

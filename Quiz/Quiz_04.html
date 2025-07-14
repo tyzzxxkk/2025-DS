@@ -3,21 +3,26 @@
 </head>
 <body>
     <script>
+        // 괄호 안의 문자들을 모두 제거하는 함수
         function solution(s) {
-            let answer;
             let stack = [];
 
-            for(let x of s) {
-                if(x===")") {
-                    while(stack.pop() !=='(');
+            for (let x of s) {
+                if (x === ")") {
+                    // 닫는 괄호가 나오면 열린 괄호 '('가 나올 때까지 pop하여 제거
+                    while (stack.pop() !== '(');
+                } else {
+                    // 괄호가 아니면 스택에 추가
+                    stack.push(x);
                 }
-                else stack.push(x);
             }
-            answer = stack.join('');
-            return answer;
+
+            // 스택에 남아있는 문자들을 합쳐서 반환
+            return stack.join('');
         }
+
         let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
-        console.log(solution(str));
+        console.log(solution(str));  // 출력: "EFKLM"
     </script>
 </body>
 </html>

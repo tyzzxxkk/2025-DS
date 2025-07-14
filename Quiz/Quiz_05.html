@@ -4,28 +4,31 @@
 <body>
     <script>
         function solution(s) {
-            let answer;
             let stack = [];
 
             for(let x of s) {
-                if(isNan(x)) {
-                    //console.log(x);
+                // 숫자인지 판별 (isNaN 함수 사용 주의, 대문자 N)
+                if(!isNaN(x)) {
+                    // 숫자면 스택에 숫자형으로 넣기
                     stack.push(Number(x));
                 } else {
+                    // 연산자면 스택에서 두 수 꺼내서 계산
                     let rt = stack.pop();
                     let lt = stack.pop();
 
-                    if(x==='+') stack.push(lt+rt);
-                    else if(x==='-') stack.pusj(lt-rt);
-                    else if(x==='*') stack.pusj(lt*rt);
-                    else if(x==='/') stack.pusj(lt/rt);
+                    if(x === '+') stack.push(lt + rt);
+                    else if(x === '-') stack.push(lt - rt);
+                    else if(x === '*') stack.push(lt * rt);
+                    else if(x === '/') stack.push(lt / rt);
                 }
             }
 
-            return answer;
+            // 최종 계산 결과는 스택에 하나 남아 있음
+            return stack.pop();
         }
-        let str = "352+*9-"; //출력값:12
-//      let str = "35-7*62/+" //출력값:-11
+
+        let str = "352+*9-"; // 출력값: 12
+        // let str = "35-7*62/+"; // 출력값: -11
         console.log(solution(str));
     </script>
 </body>

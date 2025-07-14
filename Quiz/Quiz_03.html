@@ -4,22 +4,24 @@
 <body>
     <script>
         function solution(a) {
-            let answer;
             let stack = [];
 
             for(let x of a) {
-               // console.log(x);
-               if(x === '(') stack.push();
-               else {
-                if(stack.length === 0) return "NO";
-                stack.pop();
-               }
+                // 열린 괄호 '('이면 스택에 추가
+                if(x === '(') stack.push(x);  // push 시 빈 괄호가 아니라 x를 넣어야 함
+                else {
+                    // 닫힌 괄호 ')'인데 스택이 비어있으면 올바르지 않음
+                    if(stack.length === 0) return "NO";
+                    stack.pop();  // 짝이 맞는 열린 괄호 제거
+                }
             }
 
-            return answer;
+            // 스택이 비어있으면 모두 짝이 맞음
+            if(stack.length === 0) return "YES";
+            else return "NO";
         } // solution
 
         let a = "()";
-        console.log(solution());
+        console.log(solution(a));  // a를 인자로 넣어야 함
     </script>
 </body>

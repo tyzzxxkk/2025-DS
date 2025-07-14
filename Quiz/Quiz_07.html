@@ -4,30 +4,31 @@
 <body>
     <script>
         function solution(n, k) {
-            //let answer;
-            //let queue = [];
+            let answer;  // 최종 남은 사람 번호 저장 변수
 
-            //for(let i = 0; i < n; i++) {
-            //    queue.push(i);
-            //}
-            //console.log(queue);
+            // 1부터 n까지 숫자를 가진 큐 생성
+            let queue = Array.from({length: n}, (v, i) => i + 1);
 
-            let queue = Array.from({length:n}, (v, i) => i+1);
-            console.log(queue);
-
-            let a = queue.shift();
-
-            console.log(a);
-
+            // 큐가 빌 때까지 반복
             while(queue.length) {
-                for(let i = 1; i < k; i++) queue.push(queue.shift());
+                // k-1명은 앞에서 꺼내 뒤로 다시 넣기 (k번째 사람은 제거 대상)
+                for(let i = 1; i < k; i++) {
+                    queue.push(queue.shift());
+                }
+                
+                // k번째 사람 제거
+                queue.shift();
 
-                if(queue.length===1) answer = queue.shift();
+                // 큐에 사람이 한 명만 남으면 정답 저장하고 반복 종료
+                if(queue.length === 1) {
+                    answer = queue.shift();
+                    break;
+                }
             }
             
-            return answer;
+            return answer;  // 마지막 남은 사람 번호 반환
         }
-        console.log(solution(8, 3))
+        console.log(solution(8, 3));  // 예시 출력: 7
     </script>
 </body>
 </html>

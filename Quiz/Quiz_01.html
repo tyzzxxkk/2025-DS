@@ -4,18 +4,24 @@
 </head>
 <body>
     <script>
-        function solution() {
-            let answer = 1, max = arr[0]; //answer:보이는 학생수 저장, max:지금까지 가장 큰 키 저장
-            for(let i =0; i < arr.length; i++) {
-                if(arr[i]>max) {
-                    max = arr[i];
-                    answer++;
+        // 보이는 학생 수를 구하는 함수
+        // 앞에서부터 키를 비교해 이전 최대 키보다 크면 보이는 학생 수 증가
+        function solution(arr) {
+            let answer = 1;      // 보이는 학생 수 (첫 학생은 무조건 보임)
+            let max = arr[0];    // 현재까지 가장 큰 키
+            
+            // 첫 번째 학생 다음부터 비교
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];   // 최대 키 갱신
+                    answer++;       // 보이는 학생 수 증가
                 }
             }
-            return answer;
+            return answer;        // 최종 보이는 학생 수 반환
         }
+        
         let arr = [130, 135, 148, 140, 145, 150, 150, 153];
-        console.log(solution(arr));
+        console.log(solution(arr));  // 함수 호출 시 배열 전달 필요
     </script>
 </body>
 </html>
