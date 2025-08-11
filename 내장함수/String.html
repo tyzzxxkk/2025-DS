@@ -7,7 +7,7 @@
     // var txt = "ABCDEFGHIJKLNM"
     // console.log(txt.length);
 
-    //indexOf
+    // indexOf
     // var str = "Please locate where 'locate'";
     // console.log(str.indexOf("locate"));
     // console.log(str.indexOf("John"));
@@ -26,7 +26,7 @@
     // console.log(str.search("locate"));
 
     //slice(a, b) : a index 부터 b-1 index 까지
-    var str = "Apple, Banana, Kiwi";
+    // var str = "Apple, Banana, Kiwi";
     // console.log(str.slice(7, 13));
     // console.log(str.slice(7));
     // console.log(str.slice(-12, -6)); // -를 붙이면 맨 끝 문자열부터 -1
@@ -37,17 +37,59 @@
     // substr : 
     // console.log(str.substring(7, 6));
 
-    var jumini = "070828";
+    // var jumini = "070828";
     // console.log(str.substr(0, 2));
     // console.log(str.substr(2, 2));
     // console.log(str.substr(2, 4));
 
     //split
     var tags = "키보드, 마우스, 블루투스";
-    var arr1 = tags.split(".");
+    var arr1 = tags.split(", ");
+       
+    // replace
+    str.replace("Heejin", "Jinhee")
 
-    
+    var str1 = "here here Here here here"
 
+    console.log(str1.replace(/here/g, "There")) // global(전체)를 의미
+
+    console.log(str1.replace(/here/gi, "There")) // ignore(무시)를 의미 대소문자를 무시함
+
+    console.log(str.toUpperCase()) // 전부 대문자로 표기
+    console.log(str.toLowerCase()) // 전부 소문자로 표시
+
+    // concat : 문자열 연결
+    var cc = "Hello"
+    var cc1 = "World"
+    console.log(cc+" "+cc1)
+    console.log(cc.concat(cc1))
+    console.log(cc.concat(" ", cc1))
+    console.log(cc.concat(", ", cc1))
+
+    // trim : 문자열에서 앞 뒤 공백 없앨 때
+    var tr = "      ih.      "
+    console.log(tr.trim())
+    console.log(tr.trimLeft())
+    console.log(tr.trimRight())
+
+    // padStart : 문자열의 앞 부분을 특정 길이로 채우는 함수
+    var num = "123"
+    console.log(num.padStart(5, "0"))
+
+    // padEnd : 문자열의 뒤 부분을 특정 길이로 채우는 함수
+    console.log(num.padEnd(5, "0"))
+       
+
+    console.log(arr);
+    console.log(arr.join(", ")); //배열을 ,로 이어붙여서 문자열로 반환
+
+    var birthday = "2025-07-14";
+    var birth = birthday.split("-");
+
+    console.log(birth); //배열로 변환
+    console.log(birth[0]); //년도
+    console.log(birth[1]); //월
+    console.log(birth[2]); //일
     </script>
 </body>
 </html>
