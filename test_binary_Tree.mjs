@@ -10,8 +10,9 @@ let tree7 = new BirnaryTree(7);
 
 tree1.setLeftSubTree(tree2);
 tree1.setRightSubTree(tree3);
-tree2.setLeftSubTree(tree4);
+tree2.setLeftSubTree(tree4);0
 tree2.setRightSubTree(tree5);
 tree3.setLeftSubTree(tree6);
 tree3.setRightSubTree(tree7);
 
+ 
