@@ -1,34 +1,66 @@
-class BirnaryTree {
-    constructor(data, leftTree, rightTree) {
-        this.data = data;
-        this.leftSubTree = leftTree;
-        this.rightSubTree = rightTree;
+class BinaryTree{
+    constructor(data, leftTree = null, rightTree = null){
+       this.data = data;
+       this.leftSubTree = leftTree;
+       this.rightSubTree = rightTree;
+    }
+ 
+    getData(){
+       return this.data;
+    }
+ 
+    setData(data){
+       this.data = data;
+    }
+ 
+    getLeftSubTree(){
+       return this.leftSubTree;
     }
 
-    getData() {
-        return this.data;
+    getRightSubTree(){
+       return this.rightSubTree;
     }
-
-    setData(data) {
-        this.data = data;
+ 
+    setLeftSubTree(tree){
+       this.leftSubTree = tree;
     }
-
-    getLeftSubTree() {
-        return this.leftSubTree;
+ 
+    setRightSubTree(tree){
+       this.rightSubTree = tree;
     }
-
-    getRightSubTree() {
-        return this.rightSubTree;
+ 
+    preOrderTraversal(tree){ // 전위 순회 : 루트 -> 왼쪽 -> 오른쪽
+       if(tree === null) return;
+       console.log(tree.data);
+       this.preOrderTraversal(tree.getLeftSubTree());
+       this.preOrderTraversal(tree.getRightSubTree());
     }
-
-    setLeftSubTree(tree) {
-        this.leftSubTree = tree;
+ 
+    inOrderTraversal(tree){ // 중위 순회 : 왼쪽 -> 루트 -> 오른쪽
+       if(tree === null) return;
+       this.inOrderTraversal(tree.getLeftSubTree());
+       console.log(tree.data);
+       this.inOrderTraversal(tree.getRightSubTree());
     }
-
-    setRightSubTree(tree) {
-        this.rightSubTree = tree;
+ 
+    postOrderTraversal(tree){ // 후위 순회 : 왼쪽 -> 오른쪽 -> 루트
+       if(tree === null) return;
+       this.postOrderTraversal(tree.getLeftSubTree());
+       this.postOrderTraversal(tree.getRightSubTree());
+       console.log(tree.data);
     }
-
-}
-
-export {BirnaryTree}
+ 
+    removeLeftSubTree(){
+       let deletingNode = this.getLeftSubTree();
+       this.setLeftSubTree(null);
+       return deletingNode;
+    }
+ 
+    removeRightSubTree(){
+       let deletingNode = this.getRightSubTree();
+       this.setRightSubTree(null);
+       return deletingNode;
+    }
+ }
+ 
+ export {BinaryTree};
