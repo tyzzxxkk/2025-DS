@@ -6,8 +6,8 @@
     <script>
         function solution(s, e) {
             let answer = 0;
-            let ch = Array.from({length:15}, () => 0);
-            let dis = Array.from({length:15}, () => 0);
+            let ch = Array.from({length:20}, () => 0);
+            let dis = Array.from({length:20}, () => 0);
             let queue = [];
 
             ch[s] = 1;
@@ -22,6 +22,8 @@
                     dis[nx] = dis[nx] + 1;
                 }
                 if(nx===e) {
+                    console.log(ch);
+                    console.log(dis);
                     return dus[x] + 1;
                 }
                 if(nx>0 && nx <= 15 && ch[nx]===0) {
